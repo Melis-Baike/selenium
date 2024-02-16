@@ -46,7 +46,13 @@ class QaApplicationTests {
     }
 
     @Test
-    void testUnsuccessfulLogin() {
+    void testUnsuccessfulLoginWithInvalidCredentials(){
+        String path = PROTOCOL + BODY + DELIMITER + BODY + SECOND_DELIMITER + PATH;
+        assertEquals(CHECK_TEXT, auth(path, false));
+    }
+
+    @Test
+    void testUnsuccessfulLoginWithEmptyCredentials() {
         assertEquals(CHECK_TEXT, auth(PROTOCOL.concat(PATH), false));
     }
 
